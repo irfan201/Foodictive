@@ -1,8 +1,11 @@
 package com.example.foodictive.view
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowInsets
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
@@ -39,6 +42,27 @@ class CameraActivity : AppCompatActivity() {
             binding.captureImage.setOnClickListener { takePhoto() }
         }
 
+    }
+
+    public override fun onResume() {
+        super.onResume()
+        hideUI()
+        startCamera()
+    }
+
+    public override fun onDestroy() {
+        super.onDestroy()
+        cameraExecutors.shutdown()
+    }
+
+    private fun hideUI(){
+        @Suppress("DEPRECATION")
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R){
+            window.insetsController?.hide(WindowInsets.Type.statusBars())
+        }else{
+            window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        }
+        supportActionBar?.hide()
     }
 
     private fun takePhoto(){

@@ -9,11 +9,21 @@
     <androidx.camera.view.PreviewView
         android:id="@+id/viewFinder"
         android:layout_width="match_parent"
-        android:layout_height="650dp"
-        app:layout_constraintBottom_toTopOf="@+id/captureImage"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" >
+    </androidx.camera.view.PreviewView>
+
+    <ImageView
+        android:id="@+id/switchCamera"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_flip_camera_ios_24" />
 
     <ImageView
         android:id="@+id/captureImage"
@@ -25,16 +35,6 @@
         app:layout_constraintHorizontal_bias="0.524"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_capture" />
-
-    <ImageView
-        android:id="@+id/switchCamera"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintStart_toEndOf="@+id/captureImage"
-        app:layout_constraintTop_toBottomOf="@+id/viewFinder"
-        app:srcCompat="@drawable/ic_baseline_flip_camera_ios_24" />
 
     <ImageView
         android:id="@+id/galery"
