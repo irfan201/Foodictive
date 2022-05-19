@@ -2,8 +2,10 @@ package com.example.foodictive
 
 import android.Manifest
 import android.content.Intent
+import android.content.Intent.ACTION_GET_CONTENT
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -50,6 +52,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this,CameraActivity::class.java)
             intentCamera.launch(intent)
         }
+        binding.addGalery.setOnClickListener { startGalery() }
     }
 
     private val intentCamera = registerForActivityResult(
@@ -63,6 +66,25 @@ class MainActivity : AppCompatActivity() {
             val result = rotateBitmap(BitmapFactory.decodeFile(myFile.path),isBackCamera)
 
             binding.previewImageView.setImageBitmap(result)
+        }
+    }
+
+    private fun startGalery(){
+        val intent = Intent()
+        intent.action = ACTION_GET_CONTENT
+        intent.type = "image/*"
+        val chooser = Intent.createChooser(intent,"Choose a picture")
+        lancuhIntentGalery.launch(chooser)
+    }
+
+    private val lancuhIntentGalery = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ){
+        if (it.resultCode == RESULT_OK){
+            val selectedImg: Uri = it.data?.data as Uri
+            val myFile = uriToFile(selectedImg,this)
+            getFile = myFile
+            binding.previewImageView.setImageURI(selectedImg)
         }
     }
 

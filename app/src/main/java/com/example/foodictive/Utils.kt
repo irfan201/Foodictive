@@ -1,9 +1,16 @@
 package com.example.foodictive
 
 import android.app.Application
+import android.content.ContentResolver
+import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Matrix
+import android.net.Uri
+import android.os.Environment
 import java.io.File
+import java.io.FileOutputStream
+import java.io.InputStream
+import java.io.OutputStream
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -30,6 +37,27 @@ fun createFile(application: Application): File {
 
     return File(outputDirectory,"$timeStamp.jpg")
 }
+
+fun uriToFile(image: Uri, context: Context): File{
+    val contentResolver: ContentResolver = context.contentResolver
+    val myFile = createCustomTempFile(context)
+
+    val inputStream = contentResolver.openInputStream(image) as InputStream
+    val outputStream: OutputStream = FileOutputStream(myFile)
+    val buf = ByteArray(1024)
+    var len:Int
+    while (inputStream.read(buf).also { len = it  } > 0) outputStream.write(buf,0,len)
+    outputStream.close()
+    inputStream.close()
+
+    return myFile
+}
+
+fun createCustomTempFile(context: Context):File{
+    val storage: File? = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+    return File.createTempFile(timeStamp,"jpg",storage)
+}
+
 
 private const val FILE_FORMAT = "dd-MMM-yyyy"
 val timeStamp: String = SimpleDateFormat(FILE_FORMAT, Locale.US).format(System.currentTimeMillis())
