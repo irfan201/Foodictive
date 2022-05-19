@@ -1,12 +1,14 @@
 package com.example.foodictive.view
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
@@ -17,6 +19,8 @@ import com.example.foodictive.MainActivity.Companion.CAMERA_RESULT
 import com.example.foodictive.R
 import com.example.foodictive.createFile
 import com.example.foodictive.databinding.ActivityCameraBinding
+import com.example.foodictive.uriToFile
+import java.io.File
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
@@ -25,6 +29,7 @@ class CameraActivity : AppCompatActivity() {
     private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
     private var imageCapture: ImageCapture? = null
     private lateinit var cameraExecutors: ExecutorService
+    private var getFile: File? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -107,4 +112,7 @@ class CameraActivity : AppCompatActivity() {
             }
         },ContextCompat.getMainExecutor(this))
     }
+
+
+
 }
