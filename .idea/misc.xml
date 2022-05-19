@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-
-    <output url="file://$PROJECT_DIR$/build/classes" />
+        <entry key="..\:/Users/acer/AndroidStudioProjects/Foodictive/app/src/main/res/drawable/ic_baseline_flip_camera_ios_24.xml" value="0.1835" />
+        <entry key="..\:/Users/acer/AndroidStudioProjects/Foodictive/app/src/main/res/layout/activity_camera.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/acer/AndroidStudioProjects/Foodictive/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+      </map>
+    </option>
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
