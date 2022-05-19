@@ -36,6 +36,7 @@ class CameraActivity : AppCompatActivity() {
             else CameraSelector.DEFAULT_BACK_CAMERA
 
             startCamera()
+            binding.captureImage.setOnClickListener { takePhoto() }
         }
 
     }
