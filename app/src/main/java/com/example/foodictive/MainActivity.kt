@@ -16,12 +16,14 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.foodictive.databinding.ActivityMainBinding
 import com.example.foodictive.view.CameraActivity
+import com.google.firebase.auth.FirebaseAuth
 import java.io.File
 import kotlin.math.abs
 
 class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var firebaseAuth: FirebaseAuth
     private var getFile: File? = null
     private lateinit var gestureDetector: GestureDetector
     private var x1 = 0.0f
@@ -52,9 +54,13 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         if (!allPermissionGranted()){
             ActivityCompat.requestPermissions(this, REQUIRED_PERMISSION, REQUEST_CODE_PERMISSION)
+            firebaseAuth = FirebaseAuth.getInstance()
+            chckUser()
         }
+
 
         binding.addFood.setOnClickListener {
             val intent = Intent(this,CameraActivity::class.java)
@@ -64,6 +70,8 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
 
         gestureDetector = GestureDetector(this,this)
     }
+
+
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         gestureDetector.onTouchEvent(event)
@@ -112,6 +120,17 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
         intent.type = "image/*"
         val chooser = Intent.createChooser(intent,"Choose a picture")
         lancuhIntentGalery.launch(chooser)
+    }
+    private fun chckUser() {
+        val firebaseUser = firebaseAuth.currentUser
+        if (firebaseUser == null){
+            startActivity(Intent(this,MainActivity::class.java))
+            finish()
+        }
+        else {
+            val user = firebaseUser.email
+            binding.userTv.text = user
+        }
     }
 
     private val lancuhIntentGalery = registerForActivityResult(
