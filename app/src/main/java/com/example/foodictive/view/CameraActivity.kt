@@ -53,6 +53,12 @@ class CameraActivity : AppCompatActivity(){
         }
         binding.captureImage.setOnClickListener { takePhoto() }
 
+        binding.closeCamera.setOnClickListener {
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left)
+        }
+
     }
 
     public override fun onResume() {
