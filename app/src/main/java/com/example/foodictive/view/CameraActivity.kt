@@ -1,6 +1,7 @@
 package com.example.foodictive.view
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -17,13 +18,10 @@ import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
-import com.example.foodictive.MainActivity
+import com.example.foodictive.*
 import com.example.foodictive.MainActivity.Companion.CAMERA_RESULT
 import com.example.foodictive.MainActivity.Companion.MIN_DISTANCE
-import com.example.foodictive.R
-import com.example.foodictive.createFile
 import com.example.foodictive.databinding.ActivityCameraBinding
-import com.example.foodictive.uriToFile
 import java.io.File
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
@@ -34,7 +32,6 @@ class CameraActivity : AppCompatActivity(){
     private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
     private var imageCapture: ImageCapture? = null
     private lateinit var cameraExecutors: ExecutorService
-//    private var getFile: File? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,6 +54,15 @@ class CameraActivity : AppCompatActivity(){
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left)
+        }
+
+        binding.resultImage.setOnClickListener {
+            val photoFile = createFile(application)
+            val intent = Intent()
+            intent.putExtra("picture",photoFile)
+            setResult(CAMERA_RESULT,intent)
+            finish()
+
         }
 
     }
@@ -92,11 +98,10 @@ class CameraActivity : AppCompatActivity(){
         object : ImageCapture.OnImageSavedCallback{
             override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
                 Toast.makeText(this@CameraActivity,"berhasil mengambil gambar",Toast.LENGTH_SHORT).show()
-                val intent = Intent()
-                intent.putExtra("picture",photoFile)
-                intent.putExtra("isBackCamera",cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA)
-                setResult(CAMERA_RESULT,intent)
-                finish()
+                val saved = Uri.fromFile(photoFile)
+//                val result = rotateBitmap(BitmapFactory.decodeFile(saved.path),false)
+                val result = BitmapFactory.decodeFile(saved.path)
+                binding.resultImage.setImageBitmap(result)
             }
 
             override fun onError(exception: ImageCaptureException) {
@@ -124,6 +129,8 @@ class CameraActivity : AppCompatActivity(){
             }
         },ContextCompat.getMainExecutor(this))
     }
+
+
 
 
 }

@@ -62,10 +62,7 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
         }
 
 
-        binding.addFood.setOnClickListener {
-            val intent = Intent(this,CameraActivity::class.java)
-            intentCamera.launch(intent)
-        }
+
         binding.addGalery.setOnClickListener { startGalery() }
 
         gestureDetector = GestureDetector(this,this)
@@ -108,7 +105,7 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
             val isBackCamera = it.data?.getBooleanExtra("isBackCamera",true) as Boolean
 
             getFile = myFile
-            val result = rotateBitmap(BitmapFactory.decodeFile(myFile.path),isBackCamera)
+            val result = BitmapFactory.decodeFile(myFile.path)
 
             binding.previewImageView.setImageBitmap(result)
         }
