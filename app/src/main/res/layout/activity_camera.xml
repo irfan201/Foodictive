@@ -26,6 +26,16 @@
         app:srcCompat="@drawable/ic_baseline_flip_camera_ios_24" />
 
     <ImageView
+        android:id="@+id/resultImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toTopOf="@+id/captureImage"
+        app:srcCompat="@drawable/ic_baseline_image_24" />
+
+    <ImageView
         android:id="@+id/closeCamera"
         android:layout_width="50dp"
         android:layout_height="50dp"
