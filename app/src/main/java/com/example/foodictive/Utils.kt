@@ -7,12 +7,14 @@ import android.graphics.Bitmap
 import android.graphics.Matrix
 import android.net.Uri
 import android.os.Environment
+import android.util.Patterns
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
 import java.io.OutputStream
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.regex.Pattern
 
 fun rotateBitmap(bitmap: Bitmap, backCamera: Boolean = false): Bitmap {
     val matrix = Matrix()
@@ -51,6 +53,11 @@ fun uriToFile(image: Uri, context: Context): File{
     inputStream.close()
 
     return myFile
+}
+
+fun String.emailValid(): Boolean {
+    val pattern: Pattern = Patterns.EMAIL_ADDRESS
+    return pattern.matcher(this).matches()
 }
 
 fun createCustomTempFile(context: Context):File{

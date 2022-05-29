@@ -10,4 +10,11 @@
     <string name="location">location</string>
     <string name="identifikasi">identifikasi</string>
     <string name="halaman_detail">Detail</string>
+    <string name="login">Login</string>
+    <string name="icon">Foodictive</string>
+    <string name="email_inv">Email is Invalid</string>
+    <string name="pass_inv">Password Must be 6 Character Or More</string>
+    <string name="register">Register</string>
+    <string name="txt_pass">Password</string>
+    <string name="txt_email">Email</string>
 </resources>
