@@ -59,27 +59,21 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
         setContentView(binding.root)
 
         food = Food()
-
-        intentDetail(food)
         if (!allPermissionGranted()){
             ActivityCompat.requestPermissions(this, REQUIRED_PERMISSION, REQUEST_CODE_PERMISSION)
             firebaseAuth = FirebaseAuth.getInstance()
             chckUser()
         }
-
-
-
-        binding.addGalery.setOnClickListener { startGalery() }
+        binding.halamanDetail.setOnClickListener { intentDetail(food) }
 
         gestureDetector = GestureDetector(this,this)
     }
 
-    private fun intentDetail(data: Food){
-        binding.previewImageView.setOnClickListener {
+    private fun intentDetail(food: Food){
             val intent = Intent(this,DetailMakanan::class.java)
-            intent.putExtra("food",data)
+            intent.putExtra("food",food)
             startActivity(intent)
-        }
+
     }
 
 
@@ -125,13 +119,7 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
         }
     }
 
-    private fun startGalery(){
-        val intent = Intent()
-        intent.action = ACTION_GET_CONTENT
-        intent.type = "image/*"
-        val chooser = Intent.createChooser(intent,"Choose a picture")
-        lancuhIntentGalery.launch(chooser)
-    }
+
     private fun chckUser() {
         val firebaseUser = firebaseAuth.currentUser
         if (firebaseUser == null){
@@ -144,16 +132,7 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
         }
     }
 
-    private val lancuhIntentGalery = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ){
-        if (it.resultCode == RESULT_OK){
-            val selectedImg: Uri = it.data?.data as Uri
-            val myFile = uriToFile(selectedImg,this)
-            getFile = myFile
-            binding.previewImageView.setImageURI(selectedImg)
-        }
-    }
+
 
     override fun onDown(p0: MotionEvent?): Boolean {
         return false

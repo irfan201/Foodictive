@@ -41,10 +41,10 @@
         app:srcCompat="@drawable/ic_baseline_image_24" />
 
     <Button
-        android:id="@+id/add_galery"
+        android:id="@+id/halaman_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/galery"
+        android:text="@string/halaman_detail"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

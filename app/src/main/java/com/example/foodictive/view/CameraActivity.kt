@@ -97,9 +97,8 @@ class CameraActivity : AppCompatActivity(){
         capture.takePicture(outputOption,ContextCompat.getMainExecutor(this),
         object : ImageCapture.OnImageSavedCallback{
             override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
-                Toast.makeText(this@CameraActivity,"berhasil mengambil gambar",Toast.LENGTH_SHORT).show()
                 val saved = Uri.fromFile(photoFile)
-//                val result = rotateBitmap(BitmapFactory.decodeFile(saved.path),false)
+                Toast.makeText(this@CameraActivity,"berhasil mengambil gambar",Toast.LENGTH_SHORT).show()
                 val result = BitmapFactory.decodeFile(saved.path)
                 binding.resultImage.setImageBitmap(result)
             }
