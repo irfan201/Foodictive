@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AllButton">
+        <attr name="outlined" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="WidgetAppAttrs">
+        <attr name="appWidgetPadding" format="dimension" />
+        <attr name="appWidgetInnerRadius" format="dimension" />
+        <attr name="appWidgetRadius" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="AllEditText">
+        <attr name="email" format="boolean" />
+        <attr name="password" format="boolean" />
+    </declare-styleable>
+</resources>
