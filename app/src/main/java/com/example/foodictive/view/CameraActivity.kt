@@ -22,6 +22,7 @@ import com.example.foodictive.*
 import com.example.foodictive.MainActivity.Companion.CAMERA_RESULT
 import com.example.foodictive.MainActivity.Companion.MIN_DISTANCE
 import com.example.foodictive.databinding.ActivityCameraBinding
+import com.example.foodictive.view.detail.DetailMakanan
 import java.io.File
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
@@ -62,7 +63,6 @@ class CameraActivity : AppCompatActivity(){
             intent.putExtra("picture",photoFile)
             setResult(CAMERA_RESULT,intent)
             finish()
-
         }
 
     }

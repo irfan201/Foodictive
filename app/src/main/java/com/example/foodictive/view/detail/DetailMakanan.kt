@@ -13,6 +13,7 @@ import com.example.foodictive.R
 import com.example.foodictive.databinding.ActivityDetailMakananBinding
 import com.example.foodictive.response.Food
 import com.example.foodictive.uriToFile
+import com.example.foodictive.view.CameraActivity
 import java.io.File
 
 class DetailMakanan : AppCompatActivity() {
@@ -24,23 +25,21 @@ class DetailMakanan : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailMakananBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        getPhoto()
         binding.identifikasi.setOnClickListener { setupViewModel() }
         binding.addGalery.setOnClickListener { startGalery() }
 
-
-
     }
 
-    private fun getPhoto() = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
-        if (it.resultCode == CAMERA_RESULT){
-            val myFile = it.data?.getSerializableExtra("picture") as File
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if(resultCode == CAMERA_RESULT){
+            val myFile = data?.getSerializableExtra("picture") as File
+
             getFile = myFile
             val result = BitmapFactory.decodeFile(myFile.path)
 
             binding.imageDetail.setImageBitmap(result)
-
         }
+        super.onActivityResult(requestCode, resultCode, data)
     }
 
     private fun startGalery(){
@@ -61,6 +60,8 @@ class DetailMakanan : AppCompatActivity() {
             binding.imageDetail.setImageURI(selectedImg)
         }
     }
+
+
 
     private fun setupViewModel(){
         detailModel = ViewModelProvider(this).get(DetailModel::class.java)
