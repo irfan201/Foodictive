@@ -91,7 +91,6 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
                 y2 = event.y
 
                 val valueX = x2-x1
-                val valueY = y2-y1
 
                 if (abs(valueX) > MIN_DISTANCE){
                     if (x2 > x1){
