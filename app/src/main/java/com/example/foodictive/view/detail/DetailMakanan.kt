@@ -6,9 +6,12 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
+import com.example.foodictive.MainActivity
 import com.example.foodictive.MainActivity.Companion.CAMERA_RESULT
+import com.example.foodictive.MapsActivity
 import com.example.foodictive.R
 import com.example.foodictive.databinding.ActivityDetailMakananBinding
 import com.example.foodictive.response.Food
@@ -27,6 +30,7 @@ class DetailMakanan : AppCompatActivity() {
         setContentView(binding.root)
         binding.identifikasi.setOnClickListener { setupViewModel() }
         binding.addGalery.setOnClickListener { startGalery() }
+        binding.showMap.setOnClickListener { startMap() }
 
     }
 
@@ -40,6 +44,11 @@ class DetailMakanan : AppCompatActivity() {
             binding.imageDetail.setImageBitmap(result)
         }
         super.onActivityResult(requestCode, resultCode, data)
+    }
+
+
+    private fun startMap(){
+        binding.showMap.setOnClickListener{startActivity(Intent(this, MapsActivity::class.java))}
     }
 
     private fun startGalery(){

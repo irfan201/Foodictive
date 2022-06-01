@@ -19,6 +19,9 @@
         android:theme="@style/Theme.Foodictive"
         tools:targetApi="m">
         <activity
+            android:name=".MapsActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.detail.DetailMakanan"
             android:exported="false" />
         <activity
@@ -36,6 +39,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBlhAAAEDG4-ZIJjBdE5pHISYnPdO-Ez5Y" />
 
 
     </application>
