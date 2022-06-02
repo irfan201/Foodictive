@@ -15,9 +15,8 @@ data class FoodResponse(
 	@field:SerializedName("message")
 	val message: String? = null
 )
-
 @Parcelize
-data class Food(
+data class FoodsItem(
 
 	@field:SerializedName("howtocook")
 	val howtocook: String? = null,
@@ -63,10 +62,10 @@ data class Food(
 
 	@field:SerializedName("first")
 	val first: String? = null
-): Parcelable
+):Parcelable
 
 data class Data(
 
-	@field:SerializedName("food")
-	val food: Food? = null
+	@field:SerializedName("foods")
+	val foods: List<FoodsItem?>? = null
 )

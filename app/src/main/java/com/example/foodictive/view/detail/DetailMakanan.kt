@@ -1,27 +1,25 @@
 package com.example.foodictive.view.detail
 
 import android.content.Intent
-import android.graphics.BitmapFactory
+import android.graphics.Bitmap
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
+import android.provider.MediaStore
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
-import com.example.foodictive.MainActivity
-import com.example.foodictive.MainActivity.Companion.CAMERA_RESULT
-import com.example.foodictive.R
 import com.example.foodictive.databinding.ActivityDetailMakananBinding
-import com.example.foodictive.response.Food
+import com.example.foodictive.ml.ModelFp16
+import com.example.foodictive.response.FoodsItem
 import com.example.foodictive.uriToFile
-import com.example.foodictive.view.CameraActivity
+import org.tensorflow.lite.support.image.TensorImage
 import java.io.File
 
 class DetailMakanan : AppCompatActivity() {
     private lateinit var detailModel: DetailModel
     private lateinit var binding: ActivityDetailMakananBinding
     private var getFile: File? = null
+    private lateinit var bitmap:Bitmap
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,23 +29,6 @@ class DetailMakanan : AppCompatActivity() {
         binding.addGalery.setOnClickListener { startGalery() }
 
     }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if(resultCode == CAMERA_RESULT){
-            val myFile = data?.getSerializableExtra("picture") as File
-
-            getFile = myFile
-            val result = BitmapFactory.decodeFile(myFile.path)
-
-            binding.imageDetail.setImageBitmap(result)
-        }
-        super.onActivityResult(requestCode, resultCode, data)
-    }
-
-
-//    private fun startMap(){
-//        binding.showMap.setOnClickListener{startActivity(Intent(this, MapsActivity::class.java))}
-//    }
 
     private fun startGalery(){
         val intent = Intent()
@@ -65,26 +46,42 @@ class DetailMakanan : AppCompatActivity() {
             val myFile = uriToFile(selectedImg,this)
             getFile = myFile
             binding.imageDetail.setImageURI(selectedImg)
+            bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver,selectedImg)
         }
     }
 
 
 
     private fun setupViewModel(){
+        val model = ModelFp16.newInstance(this)
+
+        val image = TensorImage.fromBitmap(bitmap)
+
+        val outputs = model.process(image).probabilityAsCategoryList.apply {
+            sortByDescending { it.score }
+        }
+        val probability = outputs[0]
         detailModel = ViewModelProvider(this).get(DetailModel::class.java)
-        val data = intent.getParcelableExtra<Food>("food") as Food
-        detailModel.setFood()
+        detailModel.setFood(probability.label)
+
+        model.close()
         detailModel.foodData.observe(this,{
-            setFoodData(it.food!!)
+            setFoodData(it.foods)
         })
+
     }
 
-    private fun setFoodData(data: Food){
+    private fun setFoodData(data: List<FoodsItem?>?){
         binding.apply {
-            namaMakanan.text = data.name
-                descMakanan.text = data.description
-                bahanMakanan.text = data.ingredients
-                caraMasak.text = data.howtocook
+            if (data != null) {
+                for (item in data){
+                    namaMakanan.text = item?.name
+                    descMakanan.text = item?.description
+                    bahanMakanan.text = item?.ingredients
+                    caraMasak.text = item?.howtocook
+
+                }
+            }
         }
     }
 

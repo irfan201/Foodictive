@@ -2,13 +2,10 @@ package com.example.foodictive
 
 import android.Manifest
 import android.content.Intent
-import android.content.Intent.ACTION_GET_CONTENT
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.widget.Toast
@@ -16,7 +13,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.foodictive.databinding.ActivityMainBinding
-import com.example.foodictive.response.Food
+import com.example.foodictive.response.FoodsItem
 import com.example.foodictive.view.CameraActivity
 import com.example.foodictive.view.detail.DetailMakanan
 import com.google.firebase.auth.FirebaseAuth
@@ -33,7 +30,7 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
     private var x2 = 0.0f
     private var y1 = 0.0f
     private var y2 = 0.0f
-    private lateinit var food: Food
+    private lateinit var food: FoodsItem
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -58,7 +55,7 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        food = Food()
+        food = FoodsItem()
         if (!allPermissionGranted()){
             ActivityCompat.requestPermissions(this, REQUIRED_PERMISSION, REQUEST_CODE_PERMISSION)
             firebaseAuth = FirebaseAuth.getInstance()
@@ -69,7 +66,7 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
         gestureDetector = GestureDetector(this,this)
     }
 
-    private fun intentDetail(food: Food){
+    private fun intentDetail(food: FoodsItem){
             val intent = Intent(this,DetailMakanan::class.java)
             intent.putExtra("food",food)
             startActivity(intent)
@@ -109,7 +106,6 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
     ){
         if (it.resultCode == CAMERA_RESULT){
             val myFile = it.data?.getSerializableExtra("picture") as File
-            val isBackCamera = it.data?.getBooleanExtra("isBackCamera",true) as Boolean
 
             getFile = myFile
             val result = BitmapFactory.decodeFile(myFile.path)

@@ -19,9 +19,6 @@
         android:theme="@style/Theme.Foodictive"
         tools:targetApi="m">
         <activity
-            android:name=".MapsActivity"
-            android:exported="false" />
-        <activity
             android:name=".view.detail.DetailMakanan"
             android:exported="false" />
         <activity
