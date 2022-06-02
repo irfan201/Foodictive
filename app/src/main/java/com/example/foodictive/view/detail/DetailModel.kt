@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.foodictive.api.apiConfig
 import com.example.foodictive.response.Data
-import com.example.foodictive.response.Food
 import com.example.foodictive.response.FoodResponse
 import retrofit2.Call
 import retrofit2.Callback
@@ -17,8 +16,8 @@ class DetailModel: ViewModel() {
     private val _foodData = MutableLiveData<Data>()
     val foodData: LiveData<Data> = _foodData
 
-    fun setFood(){
-        val client = apiConfig.getApiService().getFood()
+    fun setFood(name: String){
+        val client = apiConfig.getApiService().getFood(name)
         client.enqueue(object : Callback<FoodResponse>{
             override fun onResponse(call: Call<FoodResponse>, response: Response<FoodResponse>) {
                 if (response.isSuccessful){
