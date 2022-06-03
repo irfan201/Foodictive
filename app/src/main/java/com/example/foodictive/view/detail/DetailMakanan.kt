@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
+import com.example.foodictive.MapsActivity
 import com.example.foodictive.databinding.ActivityDetailMakananBinding
 import com.example.foodictive.ml.ModelFp16
 import com.example.foodictive.response.FoodsItem
@@ -27,6 +28,7 @@ class DetailMakanan : AppCompatActivity() {
         setContentView(binding.root)
         binding.identifikasi.setOnClickListener { setupViewModel() }
         binding.addGalery.setOnClickListener { startGalery() }
+        binding.showMap.setOnClickListener{ startMaps() }
 
     }
 
@@ -36,6 +38,10 @@ class DetailMakanan : AppCompatActivity() {
         intent.type = "image/*"
         val chooser = Intent.createChooser(intent,"Choose a picture")
         lancuhIntentGalery.launch(chooser)
+    }
+    private fun startMaps(){
+        val intent = Intent(this, MapsActivity::class.java)
+        startActivity(intent)
     }
 
     private val lancuhIntentGalery = registerForActivityResult(
