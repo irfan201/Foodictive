@@ -74,7 +74,6 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
     }
 
 
-
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         gestureDetector.onTouchEvent(event)
 
@@ -113,6 +112,7 @@ class MainActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
             binding.previewImageView.setImageBitmap(result)
         }
     }
+
 
 
     private fun chckUser() {
