@@ -6,12 +6,9 @@ import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.GestureDetector
-import android.view.MotionEvent
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
@@ -20,13 +17,10 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import com.example.foodictive.*
 import com.example.foodictive.MainActivity.Companion.CAMERA_RESULT
-import com.example.foodictive.MainActivity.Companion.MIN_DISTANCE
 import com.example.foodictive.databinding.ActivityCameraBinding
 import com.example.foodictive.view.detail.DetailMakanan
-import java.io.File
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
-import kotlin.math.abs
 
 class CameraActivity : AppCompatActivity(){
     private lateinit var binding: ActivityCameraBinding
@@ -52,7 +46,7 @@ class CameraActivity : AppCompatActivity(){
         binding.captureImage.setOnClickListener { takePhoto() }
 
         binding.closeCamera.setOnClickListener {
-            val intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this,DetailMakanan::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left)
         }
