@@ -8,11 +8,8 @@
     <uses-feature android:name="android.hardware.camera" />
 
     <uses-permission android:name="android.permission.CAMERA" />
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -23,6 +20,9 @@
         android:theme="@style/Theme.Foodictive"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <activity
+            android:name=".LoginActivityDummy"
+            android:exported="false" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -42,8 +42,9 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivityDummy"
-            android:exported="true">
+            android:name=".view.splash.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
