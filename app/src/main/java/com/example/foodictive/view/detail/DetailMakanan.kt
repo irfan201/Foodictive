@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.foodictive.MainActivity.Companion.CAMERA_RESULT
 import com.example.foodictive.R
 import com.example.foodictive.databinding.ActivityDetailMakananBinding
-import com.example.foodictive.ml.ModelFp16
+import com.example.foodictive.ml.FoodictiveDynamicQuantize
 import com.example.foodictive.response.FoodsItem
 import com.example.foodictive.uriToFile
 import com.example.foodictive.view.CameraActivity
@@ -78,7 +78,7 @@ class DetailMakanan : AppCompatActivity() {
 
 
     private fun setupViewModel(){
-        val model = ModelFp16.newInstance(this)
+        val model = FoodictiveDynamicQuantize.newInstance(this)
 
         val image = TensorImage.fromBitmap(bitmap)
 
@@ -88,7 +88,6 @@ class DetailMakanan : AppCompatActivity() {
         val probability = outputs[0]
         detailModel = ViewModelProvider(this).get(DetailModel::class.java)
         detailModel.setFood(probability.label)
-        binding.desc.text = probability.score.toString()
         binding.showMap.setOnClickListener{
             val mapsUri = "http://maps.google.co.in/maps?q= ${probability.label} "
             val intent = Intent(Intent.ACTION_VIEW,Uri.parse(mapsUri))
