@@ -10,7 +10,6 @@ import android.provider.MediaStore
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
 import com.example.foodictive.MainActivity.Companion.CAMERA_RESULT
-import com.example.foodictive.MapsActivity
 import com.example.foodictive.R
 import com.example.foodictive.databinding.ActivityDetailMakananBinding
 import com.example.foodictive.ml.ModelFp16
@@ -19,6 +18,7 @@ import com.example.foodictive.uriToFile
 import com.example.foodictive.view.CameraActivity
 import org.tensorflow.lite.support.image.TensorImage
 import java.io.File
+import java.util.*
 
 class DetailMakanan : AppCompatActivity() {
     private lateinit var detailModel: DetailModel
@@ -27,13 +27,13 @@ class DetailMakanan : AppCompatActivity() {
     private lateinit var bitmap:Bitmap
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailMakananBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.identifikasi.setOnClickListener { setupViewModel() }
         binding.addGalery.setOnClickListener { startGalery() }
-        binding.showMap.setOnClickListener{ startMaps() }
         binding.tambahFoto.setOnClickListener { val intent = Intent(this, CameraActivity::class.java)
             intentCamera.launch(intent)
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right) }
@@ -47,10 +47,7 @@ class DetailMakanan : AppCompatActivity() {
         val chooser = Intent.createChooser(intent,"Choose a picture")
         lancuhIntentGalery.launch(chooser)
     }
-    private fun startMaps(){
-        val intent = Intent(this, MapsActivity::class.java)
-        startActivity(intent)
-    }
+
 
     private val lancuhIntentGalery = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -91,6 +88,12 @@ class DetailMakanan : AppCompatActivity() {
         val probability = outputs[0]
         detailModel = ViewModelProvider(this).get(DetailModel::class.java)
         detailModel.setFood(probability.label)
+        binding.desc.text = probability.score.toString()
+        binding.showMap.setOnClickListener{
+            val mapsUri = "http://maps.google.co.in/maps?q= ${probability.label} "
+            val intent = Intent(Intent.ACTION_VIEW,Uri.parse(mapsUri))
+            startActivity(intent)
+        }
 
         model.close()
         detailModel.foodData.observe(this,{
