@@ -18,6 +18,7 @@ class AllEditText : AppCompatEditText, View.OnTouchListener {
     private lateinit var buttonClearImage: Drawable
     private lateinit var emailImage: Drawable
     private lateinit var passwordImage: Drawable
+    private lateinit var usernameImage : Drawable
     private lateinit var enabledBackground: Drawable
     private var isEmail: Boolean = false
     private var isPassword: Boolean = false

@@ -3,7 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Gian Satya/AndroidStudioProjects/capstone/Foodictive/Foodictive/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2545" />
+        <entry key="..\:/Users/Gian Satya/AndroidStudioProjects/capstone/Foodictive/Foodictive/app/src/main/res/drawable/button_cstm2_outline.xml" value="0.2545" />
+        <entry key="..\:/Users/Gian Satya/AndroidStudioProjects/capstone/Foodictive/Foodictive/app/src/main/res/drawable/button_cstm_bg.xml" value="0.2545" />
+        <entry key="..\:/Users/Gian Satya/AndroidStudioProjects/capstone/Foodictive/Foodictive/app/src/main/res/drawable/button_cstm_disabled.xml" value="0.2545" />
+        <entry key="..\:/Users/Gian Satya/AndroidStudioProjects/capstone/Foodictive/Foodictive/app/src/main/res/drawable/button_cstm_outline.xml" value="0.2545" />
+        <entry key="..\:/Users/Gian Satya/AndroidStudioProjects/capstone/Foodictive/Foodictive/app/src/main/res/drawable/button_red_bg.xml" value="0.2545" />
+        <entry key="..\:/Users/Gian Satya/AndroidStudioProjects/capstone/Foodictive/Foodictive/app/src/main/res/drawable/button_red_disabled.xml" value="0.2545" />
+        <entry key="..\:/Users/Gian Satya/AndroidStudioProjects/capstone/Foodictive/Foodictive/app/src/main/res/drawable/edit_txt_bg.xml" value="0.2545" />
+        <entry key="..\:/Users/Gian Satya/AndroidStudioProjects/capstone/Foodictive/Foodictive/app/src/main/res/drawable/ic_btn_back.xml" value="0.2545" />
+        <entry key="..\:/Users/Gian Satya/AndroidStudioProjects/capstone/Foodictive/Foodictive/app/src/main/res/drawable/person_ic.xml" value="0.2545" />
         <entry key="..\:/Users/Gian Satya/AndroidStudioProjects/capstone/Foodictive/Foodictive/app/src/main/res/layout/activity_camera.xml" value="0.371875" />
+        <entry key="..\:/Users/Gian Satya/AndroidStudioProjects/capstone/Foodictive/Foodictive/app/src/main/res/layout/activity_detail_makanan.xml" value="0.33" />
+        <entry key="..\:/Users/Gian Satya/AndroidStudioProjects/capstone/Foodictive/Foodictive/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/Gian Satya/AndroidStudioProjects/capstone/Foodictive/Foodictive/app/src/main/res/layout/activity_maps.xml" value="0.1" />
+        <entry key="..\:/Users/Gian Satya/AndroidStudioProjects/capstone/Foodictive/Foodictive/app/src/main/res/layout/activity_splash.xml" value="0.10555555555555556" />
+        <entry key="..\:/Users/Gian Satya/AndroidStudioProjects/capstone/Foodictive/Foodictive/app/src/main/res/layout/login_activity.xml" value="0.20969202898550723" />
+        <entry key="..\:/Users/Gian Satya/AndroidStudioProjects/capstone/Foodictive/Foodictive/app/src/main/res/layout/login_activity_dummy.xml" value="0.33" />
+        <entry key="..\:/Users/Gian Satya/AndroidStudioProjects/capstone/Foodictive/Foodictive/app/src/main/res/layout/regist_activity.xml" value="0.371875" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/Foodictive/app/src/main/res/drawable/ic_baseline_flip_camera_ios_24.xml" value="0.1835" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/Foodictive/app/src/main/res/layout/activity_camera.xml" value="0.28604923798358733" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/Foodictive/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />

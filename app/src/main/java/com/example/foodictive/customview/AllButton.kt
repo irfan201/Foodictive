@@ -44,15 +44,15 @@ class AllButton : AppCompatButton {
 
         txtColor = ContextCompat.getColor(
             context,
-            if (isOutlined) R.color.Red else R.color.white
+            if (isOutlined) R.color.Cstm else R.color.white
         )
         enabledBackground =
             ContextCompat.getDrawable(
                 context,
-                if (isOutlined) R.drawable.button_red_outline else R.drawable.button_red_bg
+                if (isOutlined) R.drawable.button_cstm_outline else R.drawable.button_cstm_bg
             ) as Drawable
         disabledBackground =
-            ContextCompat.getDrawable(context, R.drawable.button_red_disabled) as Drawable
+            ContextCompat.getDrawable(context, R.drawable.button_cstm_disabled) as Drawable
 
         a.recycle()
     }

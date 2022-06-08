@@ -19,6 +19,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".RegistActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoginActivityDummy"
             android:exported="false" />
         <activity
