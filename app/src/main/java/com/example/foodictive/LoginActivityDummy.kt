@@ -28,6 +28,7 @@ class LoginActivityDummy : AppCompatActivity(), View.OnClickListener{
     override fun onClick(v: View?) {
         when (v) {
             binding.btnLogin -> startActivity(Intent(this, MainActivity::class.java))
+            binding.btnRegisterLogin -> startActivity(Intent(this, RegistActivity::class.java))
         }
     }
 }

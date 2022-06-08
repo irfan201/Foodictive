@@ -18,4 +18,6 @@
     <string name="txt_pass">Password</string>
     <string name="txt_email">Email</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="btn_back">Back</string>
+    <string name="username">Username</string>
 </resources>
