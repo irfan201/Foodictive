@@ -28,7 +28,7 @@ class RegistActivity : AppCompatActivity(), View.OnClickListener{
     override fun onClick(v: View?) {
         when (v) {
             binding.btnRegister -> startActivity(Intent(this, MainActivity::class.java))
-            binding.imgBackRegister -> startActivity(Intent(this, LoginActivityDummy::class.java))
+            binding.imgBackRegister -> startActivity(Intent(this, LoginActivity::class.java))
         }
     }
 }

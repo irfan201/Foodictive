@@ -9,15 +9,14 @@
     tools:context=".LoginActivity">
 
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="372dp"
         android:background="@drawable/button_cstm2_box"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.262" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/img_back_register"
@@ -29,8 +28,12 @@
         android:contentDescription="@string/btn_back"
         android:focusable="true"
         android:src="@drawable/ic_btn_back"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:tint="@color/Cstm" />
 
     <com.github.ybq.android.spinkit.SpinKitView
@@ -49,11 +52,12 @@
         android:id="@+id/imageView"
         android:layout_width="288dp"
         android:layout_height="133dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="180dp"
         android:contentDescription="@string/icon"
         android:src="@drawable/food_logo"
         android:transitionName="logoLogin"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -62,10 +66,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:fontFamily="sans-serif-light"
         android:text="@string/register"
         android:textColor="@color/white"
         android:textSize="24sp"
-        android:fontFamily="sans-serif-light"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/imageView"
@@ -76,8 +80,8 @@
         android:layout_width="270dp"
         android:layout_height="49dp"
         android:layout_marginTop="16dp"
-        android:hint="@string/username"
         android:drawableStart="@drawable/person_ic"
+        android:hint="@string/username"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -111,15 +115,18 @@
         android:id="@+id/btn_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="52dp"
         android:background="@drawable/button_cstm_bg"
         android:text="@string/register"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/edit_password_register"
-        app:layout_constraintTop_toBottomOf="@+id/edit_password_register" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_password_register"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
