@@ -22,7 +22,7 @@
             android:name=".RegistActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivityDummy"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".view.detail.DetailMakanan"
