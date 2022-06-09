@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.detail.DetailMakanan">
+    tools:context=".view.detail.DetailMakanan"
+    android:background="@drawable/bg_food">
 
 
 
@@ -25,7 +26,9 @@
                 android:id="@+id/image_detail"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:src="@drawable/ic_baseline_image_24" />
+                android:src="@drawable/ic_baseline_image_24"
+                android:layout_gravity="center"
+                android:foregroundGravity="center"/>
         </androidx.cardview.widget.CardView>
 
         <Button
@@ -33,9 +36,13 @@
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
+            android:backgroundTint="@color/Cstm2"
             android:text="@string/galery"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toTopOf="@+id/nama_makanan"
             app:layout_constraintEnd_toStartOf="@+id/identifikasi"
+            app:layout_constraintHorizontal_bias="0.344"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/identifikasi"
             app:layout_constraintVertical_bias="0.0" />
 
@@ -45,9 +52,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/identifikasi"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/Cstm2"
             app:layout_constraintBottom_toTopOf="@+id/nama_makanan"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.84"
+            app:layout_constraintHorizontal_bias="0.94"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
@@ -56,6 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:textColor="@color/black"
             android:text="@string/nama_makanan"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -69,6 +79,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:textColor="@color/black"
             android:text="@string/deskripsi"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -83,6 +94,7 @@
             android:layout_marginStart="4dp"
             android:layout_marginTop="24dp"
             android:text="@string/deskripsi"
+            android:textColor="@color/black"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/desc" />
@@ -93,6 +105,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:text="@string/bahan_bahan"
+            android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -105,6 +118,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
+            android:textColor="@color/black"
             android:text="@string/bahan_bahan"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -115,6 +129,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
+            android:textColor="@color/black"
             android:text="@string/cara_memasak"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -127,6 +142,7 @@
             android:id="@+id/cara_masak"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="@string/cara_memasak"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -137,6 +153,8 @@
             android:layout_marginTop="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/Cstm2"
+            android:textColor="@color/black"
             android:text="@string/location"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -147,6 +165,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_add_24"
+            android:backgroundTint="@color/Cstm2"
             app:layout_constraintBottom_toBottomOf="@+id/show_map"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/show_map"
