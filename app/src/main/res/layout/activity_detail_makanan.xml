@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.detail.DetailMakanan"
-    android:background="@drawable/bg_food">
+    tools:context=".view.detail.DetailMakanan">
 
 
 
@@ -69,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:textColor="@color/black"
-            android:background="@drawable/button_cstm_outline2"
+            android:background="@drawable/button_cstm_bg"
             android:text="@string/nama_makanan"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -83,7 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:background="@drawable/button_cstm_outline2"
+            android:background="@drawable/button_cstm_bg"
             android:textColor="@color/black"
             android:text="@string/deskripsi"
             android:textSize="20sp"
@@ -111,7 +110,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:text="@string/bahan_bahan"
-            android:background="@drawable/button_cstm_outline2"
+            android:background="@drawable/button_cstm_bg"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -138,7 +137,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:textColor="@color/black"
-            android:background="@drawable/button_cstm_outline2"
+            android:background="@drawable/button_cstm_bg"
             android:text="@string/cara_memasak"
             android:textSize="20sp"
             android:textStyle="bold"
