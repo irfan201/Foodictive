@@ -18,7 +18,6 @@ import com.example.foodictive.uriToFile
 import com.example.foodictive.view.CameraActivity
 import org.tensorflow.lite.support.image.TensorImage
 import java.io.File
-import java.util.*
 
 class DetailMakanan : AppCompatActivity() {
     private lateinit var detailModel: DetailModel
@@ -32,7 +31,11 @@ class DetailMakanan : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailMakananBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.identifikasi.setOnClickListener { setupViewModel() }
+        binding.identifikasi.isEnabled = false
+        binding.identifikasi.setOnClickListener {
+                setupViewModel()
+        }
+
         binding.addGalery.setOnClickListener { startGalery() }
         binding.tambahFoto.setOnClickListener { val intent = Intent(this, CameraActivity::class.java)
             intentCamera.launch(intent)
@@ -52,7 +55,8 @@ class DetailMakanan : AppCompatActivity() {
     private val lancuhIntentGalery = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ){
-        if (it.resultCode == RESULT_OK){
+        if (it.resultCode == RESULT_OK) {
+            binding.identifikasi.isEnabled = true
             val selectedImg: Uri = it.data?.data as Uri
             val myFile = uriToFile(selectedImg,this)
             getFile = myFile
@@ -65,6 +69,7 @@ class DetailMakanan : AppCompatActivity() {
         ActivityResultContracts.StartActivityForResult()
     ){
         if (it.resultCode == CAMERA_RESULT){
+            binding.identifikasi.isEnabled = true
             val myFile = it.data?.getSerializableExtra("picture") as File
 
             getFile = myFile
@@ -80,24 +85,27 @@ class DetailMakanan : AppCompatActivity() {
     private fun setupViewModel(){
         val model = FoodictiveDynamicQuantize.newInstance(this)
 
-        val image = TensorImage.fromBitmap(bitmap)
+            val image = TensorImage.fromBitmap(bitmap)
+            val outputs = model.process(image).probabilityAsCategoryList.apply {
+                sortByDescending { it.score }
+            }
+            val probability = outputs[0]
+            detailModel = ViewModelProvider(this).get(DetailModel::class.java)
+            detailModel.setFood(probability.label)
+            binding.showMap.setOnClickListener{
+                val mapsUri = "http://maps.google.co.in/maps?q= ${probability.label} "
+                val intent = Intent(Intent.ACTION_VIEW,Uri.parse(mapsUri))
+                startActivity(intent)
+            }
 
-        val outputs = model.process(image).probabilityAsCategoryList.apply {
-            sortByDescending { it.score }
-        }
-        val probability = outputs[0]
-        detailModel = ViewModelProvider(this).get(DetailModel::class.java)
-        detailModel.setFood(probability.label)
-        binding.showMap.setOnClickListener{
-            val mapsUri = "http://maps.google.co.in/maps?q= ${probability.label} "
-            val intent = Intent(Intent.ACTION_VIEW,Uri.parse(mapsUri))
-            startActivity(intent)
-        }
+            model.close()
+            detailModel.foodData.observe(this,{
+                setFoodData(it.foods)
+            })
 
-        model.close()
-        detailModel.foodData.observe(this,{
-            setFoodData(it.foods)
-        })
+
+
+
 
     }
 
