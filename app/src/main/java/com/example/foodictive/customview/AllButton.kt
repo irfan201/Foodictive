@@ -34,7 +34,7 @@ class AllButton : AppCompatButton {
         super.onDraw(canvas)
         background = if (isEnabled) enabledBackground else disabledBackground
         setTextColor(txtColor)
-        text = resources.getString(if (isOutlined) R.string.register else R.string.login)
+        text = resources.getString(if (isOutlined) R.string.login else R.string.register)
     }
 
     private fun init(declare: AttributeSet?, defStyleAttr: Int = 0) {
@@ -44,12 +44,12 @@ class AllButton : AppCompatButton {
 
         txtColor = ContextCompat.getColor(
             context,
-            if (isOutlined) R.color.Cstm else R.color.white
+            if (isOutlined) R.color.white else R.color.Cstm2
         )
         enabledBackground =
             ContextCompat.getDrawable(
                 context,
-                if (isOutlined) R.drawable.button_cstm_outline else R.drawable.button_cstm_bg
+                if (isOutlined) R.drawable.button_cstm_outline else R.drawable.button_cstm_outline2
             ) as Drawable
         disabledBackground =
             ContextCompat.getDrawable(context, R.drawable.button_cstm_disabled) as Drawable

@@ -6,23 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingHorizontal="32dp"
+    android:background="@color/Cstm"
     tools:context=".LoginActivity">
 
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:background="@drawable/button_cstm2_box"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="288dp"
-        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="83dp"
         android:layout_marginTop="216dp"
         android:contentDescription="@string/icon"
         android:src="@drawable/food_logo"
@@ -36,43 +27,43 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="52dp"
         android:fontFamily="sans-serif-light"
         android:text="@string/login"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="36sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <com.example.foodictive.customview.AllEditText
         android:id="@+id/edit_email"
-        android:textColor="@color/white"
         android:layout_width="270dp"
         android:layout_height="49dp"
-        android:layout_marginTop="36dp"
-        android:textColorHint="@color/white"
+        android:layout_marginTop="20dp"
         android:hint="@string/txt_email"
         android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         custom:email="true" />
 
     <com.example.foodictive.customview.AllEditText
         android:id="@+id/edit_password"
         android:layout_width="270dp"
-        android:textColor="@color/white"
         android:layout_height="49dp"
         android:layout_marginTop="8dp"
         android:hint="@string/txt_pass"
-        android:textColorHint="@color/white"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/edit_email"
+        app:layout_constraintStart_toStartOf="@+id/edit_email"
         app:layout_constraintTop_toBottomOf="@id/edit_email"
         custom:password="true" />
 
@@ -80,24 +71,22 @@
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/button_cstm_bg"
+        android:layout_marginTop="28dp"
         android:text="@string/login"
         android:textAllCaps="false"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_password"
+        custom:outlined="true" />
 
     <com.example.foodictive.customview.AllButton
         android:id="@+id/btn_register_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@drawable/button_cstm_outline"
         android:text="@string/register"
         android:textAllCaps="false"
-        android:textColor="@color/Cstm"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -105,6 +94,6 @@
         app:layout_constraintStart_toStartOf="@+id/btn_login"
         app:layout_constraintTop_toBottomOf="@+id/btn_login"
         app:layout_constraintVertical_bias="0.072"
-        custom:outlined="true" />
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

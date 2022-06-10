@@ -5,37 +5,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Cstm"
     android:paddingHorizontal="32dp"
     tools:context=".LoginActivity">
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:background="@drawable/button_cstm2_box"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498" />
 
     <ImageView
         android:id="@+id/img_back_register"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="104dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:clickable="true"
         android:contentDescription="@string/btn_back"
         android:focusable="true"
         android:src="@drawable/ic_btn_back"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:tint="@color/Cstm" />
+        app:tint="@color/white" />
 
     <com.github.ybq.android.spinkit.SpinKitView
         android:id="@+id/spin_register"
@@ -49,92 +37,93 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="288dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="180dp"
-        android:contentDescription="@string/icon"
-        android:src="@drawable/food_logo"
-        android:transitionName="logoLogin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <com.example.foodictive.customview.AllEditText
+        android:id="@+id/edit_email_register"
+        android:layout_width="270dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="12dp"
+        android:hint="@string/txt_email"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/edit_name_register"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edit_name_register"
+        app:layout_constraintTop_toBottomOf="@+id/edit_name_register"
+        custom:email="true" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="56dp"
         android:fontFamily="sans-serif-light"
         android:text="@string/register"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="36sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@id/imageView" />
 
-    <com.example.foodictive.customview.AllEditText
-        android:id="@+id/edit_name_register"
-        android:layout_width="270dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="25dp"
-        android:textColorHint="@color/white"
-        android:textColor="@color/white"
-        android:drawableStart="@drawable/person_ic"
-        android:hint="@string/username"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/textView3"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <com.example.foodictive.customview.AllEditText
-        android:id="@+id/edit_email_register"
-        android:layout_width="270dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="16dp"
-        android:textColorHint="@color/white"
-        android:textColor="@color/white"
-        android:hint="@string/txt_email"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="@+id/textView3"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/edit_name_register"
-        custom:email="true" />
-
-    <com.example.foodictive.customview.AllEditText
-        android:id="@+id/edit_password_register"
-        android:layout_width="270dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="16dp"
-        android:textColor="@color/white"
-        android:hint="@string/txt_pass"
-        android:textColorHint="@color/white"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/textView3"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@id/edit_email_register"
-        custom:password="true" />
-
-    <androidx.appcompat.widget.AppCompatButton
+    <com.example.foodictive.customview.AllButton
         android:id="@+id/btn_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="56dp"
         android:background="@drawable/button_cstm_bg"
         android:text="@string/register"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toEndOf="@+id/edit_password_register"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="@+id/edit_password_register"
-        app:layout_constraintTop_toBottomOf="@+id/edit_password_register"
-        app:layout_constraintVertical_bias="0.28" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_password_register" />
+
+    <com.example.foodictive.customview.AllEditText
+        android:id="@+id/edit_name_register"
+        android:layout_width="270dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="20dp"
+        android:drawableStart="@drawable/person_ic"
+        android:hint="@string/username"
+        android:inputType="textPersonName"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="92dp"
+        android:layout_marginTop="180dp"
+        android:contentDescription="@string/icon"
+        android:src="@drawable/food_logo"
+        android:transitionName="logoLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.example.foodictive.customview.AllEditText
+        android:id="@+id/edit_password_register"
+        android:layout_width="270dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/txt_pass"
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/edit_email_register"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edit_email_register"
+        app:layout_constraintTop_toBottomOf="@id/edit_email_register"
+        custom:password="true" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

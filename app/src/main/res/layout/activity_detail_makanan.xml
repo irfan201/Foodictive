@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Cstm"
     tools:context=".view.detail.DetailMakanan">
-
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,8 +16,8 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
             android:layout_width="match_parent"
-            android:background="@drawable/button_cstm_outline2"
             android:layout_height="match_parent"
+            android:background="@drawable/button_cstm_outline2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -25,51 +25,19 @@
             <ImageView
                 android:id="@+id/image_detail"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@drawable/ic_baseline_image_24"
+                android:layout_height="198dp"
                 android:layout_gravity="center"
-                android:foregroundGravity="center"/>
+                android:foregroundGravity="center"
+                android:src="@drawable/ic_baseline_image_24" />
         </androidx.cardview.widget.CardView>
-
-        <Button
-            android:id="@+id/add_galery"
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
-            style="@style/CardView.Light"
-            android:backgroundTint="@color/Cstm2"
-            android:text="@string/galery"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/nama_makanan"
-            app:layout_constraintEnd_toStartOf="@+id/identifikasi"
-            app:layout_constraintHorizontal_bias="0.344"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/identifikasi"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <Button
-            android:id="@+id/identifikasi"
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/identifikasi"
-            style="@style/CardView.Light"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/Cstm2"
-            app:layout_constraintBottom_toTopOf="@+id/nama_makanan"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.94"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
         <TextView
             android:id="@+id/nama_makanan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/white"
-            android:background="@drawable/button_cstm_bg"
+            android:layout_marginTop="28dp"
             android:text="@string/nama_makanan"
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -77,27 +45,112 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/identifikasi" />
 
-        <TextView
-            android:id="@+id/desc"
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/tambah_foto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/button_cstm_bg"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/drk_blue"
+            android:contentDescription="tambah"
+            android:src="@drawable/ic_camera_alt"
+            app:layout_constraintBottom_toBottomOf="@+id/show_map"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/show_map"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:id="@+id/identifikasi"
+            style="@style/CardView.Light"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="@color/drk_blue"
+            android:text="@string/identifikasi"
             android:textColor="@color/white"
-            android:text="@string/deskripsi"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.796"
+            app:layout_constraintStart_toEndOf="@+id/add_galery"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+        <TextView
+            android:id="@+id/bahan"
+            android:layout_width="130dp"
+            android:layout_height="35dp"
+            android:gravity="center"
+            android:foregroundGravity="center"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/button_cstm_outline"
+            android:text="@string/bahan_bahan"
+            android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nama_makanan" />
+            app:layout_constraintTop_toBottomOf="@+id/desc_makanan" />
+
+        <Button
+            android:id="@+id/add_galery"
+            style="@style/CardView.Light"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="48dp"
+            android:backgroundTint="@color/drk_blue"
+            android:text="@string/galery"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+        <Button
+            android:id="@+id/show_map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:backgroundTint="@color/drk_blue"
+            android:text="@string/location"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cara_masak" />
+
+        <TextView
+            android:id="@+id/cara"
+            android:layout_width="130dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="16dp"
+            android:foregroundGravity="center"
+            android:text="@string/cara_memasak"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:background="@drawable/button_cstm_outline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bahan_makanan" />
+
+        <TextView
+            android:id="@+id/bahan_makanan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_cstm_outline2"
+            android:text="@string/bahan_bahan"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bahan" />
 
         <TextView
             android:id="@+id/desc_makanan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/button_cstm_outline"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_cstm_outline2"
             android:text="@string/deskripsi"
             android:textColor="@color/black"
             android:textSize="15sp"
@@ -105,80 +158,35 @@
             app:layout_constraintTop_toBottomOf="@+id/desc" />
 
         <TextView
-            android:id="@+id/bahan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="@string/bahan_bahan"
-            android:background="@drawable/button_cstm_bg"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/desc_makanan" />
-
-        <TextView
-            android:layout_marginTop="15dp"
-            android:id="@+id/bahan_makanan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_cstm_outline"
-            android:layout_marginStart="4dp"
-            android:textColor="@color/black"
-            android:text="@string/bahan_bahan"
-            android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bahan" />
-
-        <TextView
-            android:id="@+id/cara"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:textColor="@color/white"
-            android:background="@drawable/button_cstm_bg"
-            android:text="@string/cara_memasak"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bahan_makanan" />
-
-        <TextView
-            android:layout_marginTop="15dp"
             android:id="@+id/cara_masak"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_cstm_outline"
-            android:textColor="@color/black"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/button_cstm_outline2"
             android:text="@string/cara_memasak"
+            android:textColor="@color/black"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cara" />
 
-        <Button
-            android:id="@+id/show_map"
-            android:layout_marginTop="40dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/Cstm2"
-            android:textColor="@color/white"
-            android:text="@string/location"
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="130dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/button_cstm_outline"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:text="@string/deskripsi"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cara_masak" />
+            app:layout_constraintTop_toBottomOf="@+id/nama_makanan" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/tambah_foto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_camera_alt"
-            android:backgroundTint="@color/Cstm2"
-            app:layout_constraintBottom_toBottomOf="@+id/show_map"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/show_map"
-            android:contentDescription="tambah" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

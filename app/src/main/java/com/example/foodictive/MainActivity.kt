@@ -50,7 +50,6 @@ class MainActivity : AppCompatActivity(){
         if (!allPermissionGranted()){
             ActivityCompat.requestPermissions(this, REQUIRED_PERMISSION, REQUEST_CODE_PERMISSION)
             firebaseAuth = FirebaseAuth.getInstance()
-            chckUser()
         }
         binding.halamanDetail.setOnClickListener { intentDetail(food) }
 
@@ -80,17 +79,7 @@ class MainActivity : AppCompatActivity(){
             startActivity(intent)
     }
 
-    private fun chckUser() {
-        val firebaseUser = firebaseAuth.currentUser
-        if (firebaseUser == null){
-            startActivity(Intent(this,MainActivity::class.java))
-            finish()
-        }
-        else {
-            val user = firebaseUser.email
-            binding.userTv.text = user
-        }
-    }
+
 
     companion object{
         const val CAMERA_RESULT = 200

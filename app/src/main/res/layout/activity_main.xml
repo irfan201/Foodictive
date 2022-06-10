@@ -4,56 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_food"
+    android:background="@color/Cstm"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="320dp"
-        android:background="@color/Cstm"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.138" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="220dp"
+        android:layout_width="382dp"
+        android:layout_height="215dp"
         android:src="@drawable/food_logo"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.111" />
-
+        app:layout_constraintVertical_bias="0.326" />
 
     <Button
         android:id="@+id/halaman_detail"
-        android:layout_width="297dp"
-        android:layout_height="43dp"
-        android:layout_marginBottom="4dp"
-        android:backgroundTint="@color/Cstm2"
-        android:text="@string/halaman_detail"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@+id/imageView3" />
-
-    <TextView
-        android:id="@+id/userTv"
-        style="@style/TextAppearance.MaterialComponents.Body1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
+        android:layout_width="318dp"
+        android:layout_height="48dp"
         android:layout_marginTop="16dp"
-        android:text="User"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="@+id/textView"
+        android:backgroundTint="@color/drk_blue"
+        android:text="@string/halaman_detail"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
@@ -61,14 +40,14 @@
         style="@style/TextAppearance.MaterialComponents.Caption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
+        android:layout_marginTop="1dp"
         android:text="Welcome to Foodictive"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.398" />
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
