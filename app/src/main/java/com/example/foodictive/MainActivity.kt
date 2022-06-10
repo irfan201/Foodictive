@@ -5,6 +5,8 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -18,6 +20,7 @@ class MainActivity : AppCompatActivity(){
     private lateinit var binding: ActivityMainBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var food: FoodsItem
+    private lateinit var auth: FirebaseAuth
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -41,6 +44,7 @@ class MainActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        auth = FirebaseAuth.getInstance()
 
         food = FoodsItem()
         if (!allPermissionGranted()){
@@ -50,6 +54,24 @@ class MainActivity : AppCompatActivity(){
         }
         binding.halamanDetail.setOnClickListener { intentDetail(food) }
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.logout ->{
+                auth.signOut()
+                Intent(this,LoginActivity::class.java).also {
+                    it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(it)
+                }
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun intentDetail(food: FoodsItem){
