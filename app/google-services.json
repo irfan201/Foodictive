@@ -1,41 +1,33 @@
 {
   "project_info": {
-    "project_number": "140843403728",
-    "project_id": "foodictive-e3e51",
-    "storage_bucket": "foodictive-e3e51.appspot.com"
+    "project_number": "335158367108",
+    "project_id": "foodictive-b9107",
+    "storage_bucket": "foodictive-b9107.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:140843403728:android:2e52473a9adc8e246851d5",
+        "mobilesdk_app_id": "1:335158367108:android:4ac2942c6799448e6ec3d1",
         "android_client_info": {
           "package_name": "com.example.foodictive"
         }
       },
       "oauth_client": [
         {
-          "client_id": "140843403728-eq6canm8r9utckhj1hd985ulasob53hq.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.foodictive",
-            "certificate_hash": "08e9a34f563f7f7c4c330573aaebcfe6ada017c5"
-          }
-        },
-        {
-          "client_id": "140843403728-tif3587jqiilt4ut5p6gsrd9vrl9r0db.apps.googleusercontent.com",
+          "client_id": "335158367108-j88aej3oevprmc5ss9u5qqh2gfrh0djr.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBw-H0MRBR-ljppX8sNm9pTa51PPJjqogw"
+          "current_key": "AIzaSyCnGCPcHF0yRTkX-yEtI-nvD4ppzQeX2o0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "140843403728-tif3587jqiilt4ut5p6gsrd9vrl9r0db.apps.googleusercontent.com",
+              "client_id": "335158367108-j88aej3oevprmc5ss9u5qqh2gfrh0djr.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
