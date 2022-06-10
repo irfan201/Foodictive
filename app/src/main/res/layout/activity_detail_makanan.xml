@@ -135,12 +135,12 @@
             android:id="@+id/bahan_makanan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/button_cstm_outline2"
             android:text="@string/bahan_bahan"
             android:textColor="@color/black"
             android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bahan" />
 
@@ -148,12 +148,12 @@
             android:id="@+id/desc_makanan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/button_cstm_outline2"
             android:text="@string/deskripsi"
             android:textColor="@color/black"
             android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/desc" />
 
@@ -161,12 +161,12 @@
             android:id="@+id/cara_masak"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/button_cstm_outline2"
             android:text="@string/cara_memasak"
             android:textColor="@color/black"
             android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cara" />
 
