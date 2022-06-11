@@ -48,11 +48,11 @@ class DetailMakanan : AppCompatActivity() {
         intent.action = Intent.ACTION_GET_CONTENT
         intent.type = "image/*"
         val chooser = Intent.createChooser(intent,"Choose a picture")
-        lancuhIntentGalery.launch(chooser)
+        IntentGalery.launch(chooser)
     }
 
 
-    private val lancuhIntentGalery = registerForActivityResult(
+    private val IntentGalery = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ){
         if (it.resultCode == RESULT_OK) {
@@ -122,7 +122,4 @@ class DetailMakanan : AppCompatActivity() {
             }
         }
     }
-
-
-
 }

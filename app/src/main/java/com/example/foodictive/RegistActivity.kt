@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Patterns
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.foodictive.databinding.RegistActivityBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -37,16 +38,17 @@ class RegistActivity : AppCompatActivity(){
                     editEmailRegister.error = "please input email"
                     editEmailRegister.requestFocus()
                 }
-                !Patterns.EMAIL_ADDRESS.matcher(email).matches() ->{
-                    editEmailRegister.error = "email is not valid"
-                    editEmailRegister.requestFocus()
-                }
-                password.isEmpty() ->{
-                    editPasswordRegister.error = "please input password and must be more than 6 character"
-                    editPasswordRegister.requestFocus()
-                }
             }
-                registUser(email,password)
+                if (email.isEmpty() && password.isEmpty()){
+                    AlertDialog.Builder(this@RegistActivity)
+                        .setMessage("please insert email and password")
+                        .setPositiveButton("Oke"){_,_->
+
+                        }
+                        .create().show()
+                }else{
+                    registUser(email,password)
+                }
         }
         }
     }
@@ -61,15 +63,6 @@ class RegistActivity : AppCompatActivity(){
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        if (auth.currentUser != null){
-            Intent(this,MainActivity::class.java).also {
-                it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(it)
-            }
-        }
-    }
 
 
 }

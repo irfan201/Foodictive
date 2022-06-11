@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Patterns
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.foodictive.databinding.LoginActivityBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -32,16 +33,17 @@ class LoginActivity : AppCompatActivity(){
                         editEmail.error = "please input email"
                         editEmail.requestFocus()
                     }
-                    !Patterns.EMAIL_ADDRESS.matcher(email).matches() ->{
-                        editEmail.error = "email is not valid"
-                        editEmail.requestFocus()
-                    }
-                    password.isEmpty()  ->{
-                        editPassword.error = "please input password and must be more than 6 character"
-                        editPassword.requestFocus()
-                    }
                 }
-                loginUser(email, password)
+                if (email.isEmpty() && password.isEmpty()){
+                    AlertDialog.Builder(this@LoginActivity)
+                        .setMessage("please insert email and password")
+                        .setPositiveButton("Oke"){_,_->
+
+                        }
+                        .create().show()
+                }else{
+                    loginUser(email, password)
+                }
             }
         }
     }

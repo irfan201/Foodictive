@@ -92,13 +92,13 @@ class CameraActivity : AppCompatActivity(){
         object : ImageCapture.OnImageSavedCallback{
             override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
                 val saved = Uri.fromFile(photoFile)
-                Toast.makeText(this@CameraActivity,"berhasil mengambil gambar",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@CameraActivity,"managed to take picture",Toast.LENGTH_SHORT).show()
                 val result = BitmapFactory.decodeFile(saved.path)
                 binding.resultImage.setImageBitmap(result)
             }
 
             override fun onError(exception: ImageCaptureException) {
-                Toast.makeText(this@CameraActivity,"gagal mengambil gambar",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@CameraActivity,"failed to take picture",Toast.LENGTH_SHORT).show()
             }
         })
     }
@@ -118,7 +118,7 @@ class CameraActivity : AppCompatActivity(){
                 cameraProvider.unbindAll()
                 cameraProvider.bindToLifecycle(this,cameraSelector,preview,imageCapture)
             } catch (e: Exception){
-                Toast.makeText(this,"gagal memunculkan camera",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"",Toast.LENGTH_SHORT).show()
             }
         },ContextCompat.getMainExecutor(this))
     }
