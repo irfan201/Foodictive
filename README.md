@@ -5,5 +5,7 @@ This application is useful for identifying the food you want to know about, whic
 # Desain in Figma
 ![image](https://user-images.githubusercontent.com/82924589/173212325-02a8e74b-c0fe-4074-ae7c-db3fb65032a9.png)
 # Application Flow
-Uploading Record_2022-06-12-09-46-23.mp4…
+https://user-images.githubusercontent.com/82924589/173212348-a862b85c-d4d5-48ea-a30e-4d1f9e20f428.mp4
+
+
 
